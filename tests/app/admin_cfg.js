@@ -90,3 +90,4 @@ function formatDateTime(d) {
   return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/') + ' ' +
          [pad(d.getHours()), pad(d.getMinutes()), pad(d.getSeconds())].join(':');
 }
+
