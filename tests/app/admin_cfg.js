@@ -4,7 +4,7 @@ Meteor.startup(function() {
     if (!user)
       return false;
 
-    return (user.username == 'alberto');
+    return (user.username == 'admin');
   });
   
   Admin.set('Users', {
