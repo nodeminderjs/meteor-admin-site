@@ -6,7 +6,8 @@ if (Posts.find().count() === 0) {
     "_id" : "5bvb7XXQX7NZHMxTB",
     "createdAt" : now - 24 * 3600 * 1000,
     "profile" : {
-      "name" : "Administrator"
+      "name" : "Administrator",
+      "role" : "admin"
     },
     "services" : {
       "password" : {
@@ -19,22 +20,19 @@ if (Posts.find().count() === 0) {
         }
       }
     },
-    "username" : "admin",
-    "role" : "admin"
+    "username" : "admin"
   });
 
   // create two users
   var tomId = Meteor.users.insert({
-    profile: { name: 'Tom Coleman' },
-    username: 'tcoleman',
-    role: "staff"
+    profile: { name: 'Tom Coleman', role: 'staff' },
+    username: 'tcoleman'
   });
   var tom = Meteor.users.findOne(tomId);
 
   var sachaId = Meteor.users.insert({
-    profile: { name: 'Sacha Greif' },
-    username: 'sgreif',
-    role: "staff"
+    profile: { name: 'Sacha Greif', role: 'staff' },
+    username: 'sgreif'
   });
   var sacha = Meteor.users.findOne(sachaId);
 
