@@ -1,4 +1,6 @@
 Meteor.startup(function() {
+  Admin.setLayout('adminLayout');
+  
   Admin.checkPermissions(function(user, collection, op) {
     // op == 'list' | 'insert' | 'update' | 'delete'
     if (!user)
