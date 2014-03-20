@@ -1,4 +1,4 @@
-<template name="adminLayout">
+<template name="adminDefaultLayout">
   {{> adminHeader}}
   <div class="container">
     <div class="admin">
@@ -97,9 +97,9 @@
         <div class="form-group">
           <label for="{{field}}" class="col-sm-2 control-label">{{label}}</label>
           <div class="col-sm-10">
-            {{#if ref}}
+            {{#if select}}
               <select class="form-control" id="{{field}}">
-                {{#each refs}}
+                {{#each options}}
                   <option value="{{this}}"{{admIfEquals ../value this ' selected'}}>{{this}}</option>
                 {{/each}}
               </select>

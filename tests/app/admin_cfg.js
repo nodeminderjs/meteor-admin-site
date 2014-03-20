@@ -9,9 +9,15 @@ Meteor.startup(function() {
   
   Admin.set('Users', {
     collection: Meteor.users,
-    listFields: ['_id', 'profile.name'],
-    editFields: ['profile.name'],
+    listFields: ['_id', 'profile.name', 'username', 'role'],
+    editFields: ['profile.name', 'role'],
+    selectFields: {
+      role: {
+        options: ['admin', 'staff', 'user']
+      }
+    },
     labels: {
+      '_id': 'Id',
       'profile.name': 'Name'
     }
   });

@@ -1,16 +1,40 @@
 if (Posts.find().count() === 0) {
   var now = new Date().getTime();
+  
+  // create admin user
+  Meteor.users.insert({
+    "_id" : "5bvb7XXQX7NZHMxTB",
+    "createdAt" : now - 24 * 3600 * 1000,
+    "profile" : {
+      "name" : "Administrator"
+    },
+    "services" : {
+      "password" : {
+        "srp" : {
+          "identity" : "hXLv4ETaXditKz9vu",
+          "salt" : "c4SY7pCiCTXZLJSeh",
+          "verifier" : "762ead155f6b9f1fce6a0f2736ec00966778ad0ab04187dff0b08e683fa1a4d0bfff00a01af93d80b741e" +
+                       "6e95e0f5d50539e42b6ff5cf9c9b43020c155565866e44987933a70173482b9fef96ad0800b2cf45c9a5d" +
+                       "96ebee3af8569ca548587012d7fe4f9560b2406d323e433eba237389e90caba761cd64ef1fea6dfd2bff9f"
+        }
+      }
+    },
+    "username" : "admin",
+    "role" : "admin"
+  });
 
   // create two users
   var tomId = Meteor.users.insert({
     profile: { name: 'Tom Coleman' },
-    username: 'tcoleman'
+    username: 'tcoleman',
+    role: "staff"
   });
   var tom = Meteor.users.findOne(tomId);
 
   var sachaId = Meteor.users.insert({
     profile: { name: 'Sacha Greif' },
-    username: 'sgreif'
+    username: 'sgreif',
+    role: "staff"
   });
   var sacha = Meteor.users.findOne(sachaId);
 
