@@ -3,15 +3,12 @@ Meteor.startup(function() {
   
   Admin.checkPermissions(function(user, collection, op) {
     // op == 'list' | 'insert' | 'update' | 'delete'
-    if (!user)
-      return false;
-
-    return (user.username == 'admin');
+    return (user && user.profile.role != 'user');
   });
   
   Admin.set('Users', {
     collection: Meteor.users,
-    listFields: ['_id', 'profile.name', 'username', 'profile.role'],
+    listFields: ['_id', 'profile.name', 'username', 'profile.role', 'createdAt'],
     editFields: ['profile.name', 'profile.role'],
     selectFields: {
       'profile.role': {
@@ -21,7 +18,13 @@ Meteor.startup(function() {
     labels: {
       '_id': 'Id',
       'profile.name': 'Name',
-      'profile.role': 'Role'
+      'profile.role': 'Role',
+      'createdAt': 'Created'
+    },
+    customFields: {
+      createdAt: function(dt) {
+        return formatDateTime(dt);
+      }
     }
   });
       
@@ -34,11 +37,8 @@ Meteor.startup(function() {
       commentsCount: 'number'
     },
     labels: {
-      title: 'Title',
-      author: 'Author',
       userId: 'User',
       url: 'Link',
-      message: 'Message',
       submitted: 'Created',
       lastModified: 'Modified',
       commentsCount: 'Comments'
@@ -99,4 +99,3 @@ function formatDateTime(d) {
   return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/') + ' ' +
          [pad(d.getHours()), pad(d.getMinutes()), pad(d.getSeconds())].join(':');
 }
-

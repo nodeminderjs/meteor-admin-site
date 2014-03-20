@@ -23,6 +23,48 @@ if (Posts.find().count() === 0) {
     "username" : "admin"
   });
 
+  Meteor.users.insert({
+    "_id" : "6bvb8XnQX8NZHMx0C",
+    "createdAt" : now - 23 * 3600 * 1000,
+    "profile" : {
+      "name" : "Staff",
+      "role" : "staff"
+    },
+    "services" : {
+      "password" : {
+        "srp" : {
+          "identity" : "hXLv4ETaXditKz9vu",
+          "salt" : "c4SY7pCiCTXZLJSeh",
+          "verifier" : "762ead155f6b9f1fce6a0f2736ec00966778ad0ab04187dff0b08e683fa1a4d0bfff00a01af93d80b741e" +
+                       "6e95e0f5d50539e42b6ff5cf9c9b43020c155565866e44987933a70173482b9fef96ad0800b2cf45c9a5d" +
+                       "96ebee3af8569ca548587012d7fe4f9560b2406d323e433eba237389e90caba761cd64ef1fea6dfd2bff9f"
+        }
+      }
+    },
+    "username" : "staff"
+  });
+
+  Meteor.users.insert({
+    "_id" : "7bfb9Xn2X9NZHMx1q",
+    "createdAt" : now - 22 * 3600 * 1000,
+    "profile" : {
+      "name" : "User",
+      "role" : "user"
+    },
+    "services" : {
+      "password" : {
+        "srp" : {
+          "identity" : "hXLv4ETaXditKz9vu",
+          "salt" : "c4SY7pCiCTXZLJSeh",
+          "verifier" : "762ead155f6b9f1fce6a0f2736ec00966778ad0ab04187dff0b08e683fa1a4d0bfff00a01af93d80b741e" +
+                       "6e95e0f5d50539e42b6ff5cf9c9b43020c155565866e44987933a70173482b9fef96ad0800b2cf45c9a5d" +
+                       "96ebee3af8569ca548587012d7fe4f9560b2406d323e433eba237389e90caba761cd64ef1fea6dfd2bff9f"
+        }
+      }
+    },
+    "username" : "user"
+  });
+  
   // create two users
   var tomId = Meteor.users.insert({
     profile: { name: 'Tom Coleman', role: 'staff' },

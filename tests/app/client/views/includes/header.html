@@ -9,16 +9,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'home'}}">Admin Site Test Application</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Meteor Admin Site</a>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{#if canAdmin}}
           <li>
             <a href="{{pathFor 'adminMain'}}">Admin</a>
           </li>
+          {{/if}}
           {{ loginButtons }}
         </ul>
       </div>
