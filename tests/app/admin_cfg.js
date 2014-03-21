@@ -1,11 +1,13 @@
 Meteor.startup(function() {
+  Admin.setBasePath('/admin-site');
+
   Admin.setLayout('adminLayout');
-  
+
   Admin.checkPermissions(function(user, collection, op) {
     // op == 'list' | 'insert' | 'update' | 'delete'
     return (user && user.profile.role != 'user');
   });
-  
+
   Admin.set('Users', {
     collection: Meteor.users,
     listFields: ['_id', 'profile.name', 'username', 'profile.role', 'createdAt'],

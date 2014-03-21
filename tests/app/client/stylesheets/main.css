@@ -13,3 +13,12 @@ body {
 .myspinner {
   margin-top: 50px;
 }
+
+#nav-admin-link {
+  color: #e33;
+  font-weight: bold;
+}
+
+#nav-admin-link:hover {
+  color: #f44;
+}
