@@ -9,4 +9,5 @@ Disclaimer
 
 We are in an early development stage, so the project is not fully functional.
 
-There is absolutely no concern about backward compatibility until version 0.1.0 is reached.
+There will be absolutely no concern about backward compatibility until version 1.0.0 is reached,
+or until a more functional and stable state is reached, at the discretion of the project manager.
