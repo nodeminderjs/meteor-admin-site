@@ -3,8 +3,22 @@ Meteor.startup(function() {
 
   Admin.setLayout('adminLayout');
 
-  Admin.checkPermissions(function(user, collection, op) {
-    // op == 'list' | 'insert' | 'update' | 'delete'
+  Admin.checkPermissions(function(user, collection, op, doc, newDoc) {
+    //
+    // op == 'list' | 'new' | 'edit' | 'insert' | 'update' | 'delete'
+    //
+    var origin;
+
+    if (Meteor.isClient)
+      origin = window.location.origin;
+    else
+      origin = process.env.ROOT_URL;
+        
+    if (origin == 'http://admin-site.meteor.com') {
+      if (op == 'update' && collection == 'Users' && doc.username == 'admin')
+        throw new Meteor.Error(401, "You can't update the admin user");
+    }
+
     return (user && user.profile.role != 'user');
   });
 
