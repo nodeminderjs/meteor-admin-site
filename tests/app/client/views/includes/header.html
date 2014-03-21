@@ -14,11 +14,18 @@
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          <li>
+            {{#if isAdminRoute}}
+            <a href="{{pathFor 'home'}}">Home</a>
+            {{/if}}
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#if canAdmin}}
           <li>
+            {{#unless isAdminRoute}}
             <a href="{{pathFor 'adminMain'}}" id="nav-admin-link">Admin</a>
+            {{/unless}}
           </li>
           {{/if}}
           {{ loginButtons }}
