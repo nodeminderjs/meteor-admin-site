@@ -25,9 +25,15 @@ Meteor.startup(function() {
   Admin.set('Users', {
     collection: Meteor.users,
     listFields: ['_id', 'profile.name', 'username', 'profile.role', 'createdAt'],
+    customListFields: {
+      createdAt: function(dt) {
+        return formatDateTime(dt);
+      }
+    },
     editFields: ['profile.name', 'profile.role'],
-    selectFields: {
+    customEditFields: {
       'profile.role': {
+        type: 'select',
         options: ['admin', 'staff', 'user']
       }
     },
@@ -36,30 +42,12 @@ Meteor.startup(function() {
       'profile.name': 'Name',
       'profile.role': 'Role',
       'createdAt': 'Created'
-    },
-    customFields: {
-      createdAt: function(dt) {
-        return formatDateTime(dt);
-      }
     }
   });
       
   Admin.set('Posts', {
     listFields: ['title', 'author', 'url', 'message', 'submitted', 'lastModified', 'commentsCount'],
-    editFields: ['title', 'author', 'url', 'message', 'submitted', 'lastModified', 'commentsCount'],
-    dataTypes: {
-      submitted: 'number',
-      lastModified: 'number',
-      commentsCount: 'number'
-    },
-    labels: {
-      userId: 'User',
-      url: 'Link',
-      submitted: 'Created',
-      lastModified: 'Modified',
-      commentsCount: 'Comments'
-    },
-    customFields: {
+    customListFields: {
       submitted: function(dt) {
         return formatDateTime(dt);
       },
@@ -70,8 +58,10 @@ Meteor.startup(function() {
         return '<a href="' + link + '">' + link + '</a>';
       }
     },
-    references: {
+    editFields: ['title', 'author', 'url', 'message', 'submitted', 'lastModified', 'commentsCount'],
+    customEditFields: {
       author: {
+        type: 'reference',
         ref: 'Users',
         get: function(collection) {
           return collection.find({}, {fields: {_id: 1, profile: 1}, sort: {'profile.name': 1}});
@@ -87,6 +77,18 @@ Meteor.startup(function() {
           doc.author = ref.profile.name;
         }
       }
+    },
+    dataTypes: {
+      submitted: 'number',
+      lastModified: 'number',
+      commentsCount: 'number'
+    },
+    labels: {
+      userId: 'User',
+      url: 'Link',
+      submitted: 'Created',
+      lastModified: 'Modified',
+      commentsCount: 'Comments'
     },
     beforeSave: function(collectionName, editDoc, op) {
       // This code will run in the server, before insert/update the doc
