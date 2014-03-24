@@ -120,4 +120,23 @@ if (Posts.find().count() === 0) {
     submitted: now - 12 * 3600 * 1000,
     commentsCount: 0
   });
+  
+  // Products and categories
+  Categories.insert({
+    name: 'software',
+    description: 'Software',
+  });
+  
+  Categories.insert({
+    name: 'hardware',
+    description: 'Hardware',
+  });
+
+  Products.insert({
+    category: ['software'],
+    name: 'Linux',
+    description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis. Sed vitae, et aut doloremque. Vivamus egestas ut, sed eleifend, proin mi.',
+    image: '/img/linux.jpg',
+    price: 0.00
+  });
 }
