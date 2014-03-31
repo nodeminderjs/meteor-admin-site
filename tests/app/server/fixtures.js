@@ -123,20 +123,36 @@ if (Posts.find().count() === 0) {
   
   // Products and categories
   Categories.insert({
-    name: 'software',
+    name: 'Software',
     description: 'Software',
   });
   
   Categories.insert({
-    name: 'hardware',
+    name: 'Hardware',
     description: 'Hardware',
   });
 
   Products.insert({
-    category: ['software'],
+    category: ['Software'],
     name: 'Linux',
-    description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis. Sed vitae, et aut doloremque. Vivamus egestas ut, sed eleifend, proin mi.',
+    description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis.',
     image: '/img/linux.jpg',
     price: 0.00
+  });
+
+  Products.insert({
+    category: ['Hardware'],
+    name: 'Motherboard',
+    description: 'Sed vitae, et aut doloremque. Vivamus egestas ut, sed eleifend, proin mi.',
+    image: '/img/motherboard.jpg',
+    price: 25.00
+  });
+
+  Products.insert({
+    category: ['Hardware'],
+    name: 'Arduino',
+    description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis.',
+    image: '/img/arduino.jpg',
+    price: 17.00
   });
 }

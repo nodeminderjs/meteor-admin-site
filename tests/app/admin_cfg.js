@@ -99,6 +99,20 @@ Meteor.startup(function() {
         editDoc['submitted'] = dt;
     }
   });
+
+  Admin.set('Products', {
+    filterFields: ['category'],
+    filters: {
+      category: {
+        get: function() {
+          var docs = Categories.find({}, {fields: {name: 1}, sort: {'name': 1}});
+        },
+        map: function(d) {
+          return d.name;
+        }
+      }
+    }
+  });
 });
 
 /*

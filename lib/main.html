@@ -4,10 +4,10 @@
     <div class="admin">
       <div class="row">
         <div class="col-md-2">
-          {{yield 'menu'}}
+          {{> yield region='menu'}}
         </div>
         <div class="col-md-10">
-          {{yield}}
+          {{> yield}}
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
           <li>
             <a href="{{pathFor 'adminMain'}}">Admin</a>
           </li>
-          {{ loginButtons }}
+          {{> loginButtons }}
         </ul>
       </div>
     </div>
@@ -49,9 +49,15 @@
   <h2><a href="{{pathFor 'adminMain'}}">Admin</a></h2>
   <ul class="nav nav-pills nav-stacked">
     {{#each collections}}
-      <li{{admIfEquals ../collectionName name ' class="active"'}}>
-        <a href="{{pathFor 'adminList'}}">{{name}}</a>
-      </li>
+      {{#if isEqual ../collectionName name}}
+        <li class="active">
+          <a href="{{pathFor 'adminList'}}">{{name}}</a>
+        </li>
+      {{else}}
+        <li>
+          <a href="{{pathFor 'adminList'}}">{{name}}</a>
+        </li>
+      {{/if}}
     {{/each}}
   </ul>
 </template>
@@ -76,9 +82,13 @@
           <tr>
             {{#admListEachField ../collectionName}}
               <td>
-                {{#if first}}<a href="{{pathFor 'adminMain'}}/{{../../../collectionName}}/edit/{{../../this._id}}">{{/if}}
+                {{#if first}}
+                  <a href="{{pathFor 'adminMain'}}/{{../../../collectionName}}/edit/{{../../_id}}">
                   {{{value}}}
-                {{#if first}}</a>{{/if}}
+                  </a>
+                {{else}}
+                  {{{value}}}
+                {{/if}}
               </td>
             {{/admListEachField}}
           </tr>
@@ -100,7 +110,7 @@
             {{#if select}}
               <select class="form-control" id="{{field}}">
                 {{#each options}}
-                  <option value="{{this}}"{{admIfEquals ../value this ' selected'}}>{{this}}</option>
+                  <option value="{{this}}" selected={{isEqual ../value this}}>{{this}}</option>
                 {{/each}}
               </select>
             {{else}}
