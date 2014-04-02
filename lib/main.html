@@ -80,22 +80,16 @@
       <tbody>
         {{#each docs}}
           <tr>
-            {{#admListEachField ../collectionName}}
-              <td>
-                {{#if first}}
-                  <a href="{{pathFor 'adminMain'}}/{{../../../collectionName}}/edit/{{../../_id}}">
-                  {{{value}}}
-                  </a>
-                {{else}}
-                  {{{value}}}
-                {{/if}}
-              </td>
-            {{/admListEachField}}
+            {{> adminListRow getContext ..}}
           </tr>
         {{/each}}
       </tbody>
     </table>
   {{/if}}
+</template>
+
+<template name="adminListRow">
+  <td>{{helper}}</td>
 </template>
 
 <template name="adminEdit">
