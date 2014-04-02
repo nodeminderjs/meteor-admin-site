@@ -67,13 +67,13 @@ if (Posts.find().count() === 0) {
   
   // create two users
   var tomId = Meteor.users.insert({
-    profile: { name: 'Tom Coleman', role: 'staff' },
+    profile: { name: 'Tom', role: 'staff' },
     username: 'tcoleman'
   });
   var tom = Meteor.users.findOne(tomId);
 
   var sachaId = Meteor.users.insert({
-    profile: { name: 'Sacha Greif', role: 'staff' },
+    profile: { name: 'Sacha', role: 'staff' },
     username: 'sgreif'
   });
   var sacha = Meteor.users.findOne(sachaId);
