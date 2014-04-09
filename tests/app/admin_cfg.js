@@ -25,7 +25,7 @@ Meteor.startup(function() {
   Admin.set('Users', {
     collection: Meteor.users,
     listFields: ['_id', 'profile.name', 'username', 'profile.role', 'createdAt'],
-    customListFields: {
+    customDisplayFields: {
       createdAt: function(dt) {
         return formatDateTime(dt);
       }
@@ -47,18 +47,21 @@ Meteor.startup(function() {
       
   Admin.set('Posts', {
     listFields: ['title', 'author', 'url', 'message', 'submitted', 'lastModified', 'commentsCount'],
-    customListFields: {
+    customDisplayFields: {
       submitted: function(dt) {
         return formatDateTime(dt);
       },
       lastModified: function(dt) {
         return formatDateTime(dt);
       },
-      url: function(link) {
-        return '<a href="' + link + '">' + link + '</a>';
+      url: function(link, edit) {
+        if (edit)
+          return link;
+        else
+          return '<a href="' + link + '">' + link + '</a>';
       }
     },
-    editFields: ['title', 'author', 'url', 'message', 'submitted', 'lastModified', 'commentsCount'],
+    editFields: ['title', 'author', 'url', 'message', 'commentsCount'],
     customEditFields: {
       author: {
         type: 'reference',
