@@ -7,7 +7,8 @@ Package.on_use(function(api) {
   api.use('mongo-livedata', 'client');
   api.use('templating', 'client');
   api.use('iron-router', ['client', 'server']);
-
+  api.use('deps', ['client', 'server']);
+  
   api.export('Admin');
 
   api.add_files('lib/admin.js', ['client', 'server']);

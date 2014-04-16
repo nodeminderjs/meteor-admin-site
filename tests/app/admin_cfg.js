@@ -1,7 +1,7 @@
-Meteor.startup(function() {
-  Admin.setBasePath('/admin-site');
+Admin.startup(function() {
+  Admin.basePath = '/admin-site';
 
-  Admin.setLayout('adminLayout');
+  Admin.layout = 'adminLayout';
 
   Admin.checkPermissions(function(user, collection, op, doc, newDoc) {
     //
