@@ -67,25 +67,58 @@
 </template>
 
 <template name="adminList">
-  <h2>{{collectionName}}</h2>
-  {{#if docs}}
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          {{#each listFields}}
-            <th>{{printLabel ../collectionName this}}</th>
-          {{/each}}
-        </tr>
-      </thead>
-      <tbody>
-        {{#each docs}}
+  <div class="{{#if filters}}col-md-10{{else}}col-md-12{{/if}}">
+    <h2>{{collectionName}}</h2>
+    {{#if docs}}
+      <table class="table table-striped">
+        <thead>
           <tr>
-            {{> adminListRow getRowContext ../collectionName}}
+            {{#each listFields}}
+              <th>{{printLabel ../collectionName this}}</th>
+            {{/each}}
           </tr>
+        </thead>
+        <tbody>
+          {{#each docs}}
+            <tr>
+              {{> adminListRow getRowContext ../collectionName}}
+            </tr>
+          {{/each}}
+        </tbody>
+        {{#if hasMore}}
+          <tfoot>
+            <tr>
+              <td colspan="{{nfields}}">
+                <a class="load-more btn btn-default btn-sm" href="#">Load more</a>
+              </td>
+            </tr>
+          </tfoot>
+        {{/if}}
+      </table>
+    {{/if}}
+  </div>
+  {{#if docs}}
+    {{#if filters}}
+      <div class="col-md-2">
+        <h3>Filter by</h3>
+        {{#each filters}}
+          <div class="admin-filter">
+            {{> adminFilter filter=this collectionName=../collectionName}}
+          </div>
         {{/each}}
-      </tbody>
-    </table>
+        <div class="admin-filter-clear"><a href="#" class="clear">Clear all filters</a></div>
+      </div>
+    {{/if}}
   {{/if}}
+</template>
+
+<template name="adminFilter">
+  <h4>{{printLabel collectionName filter.field}}</h4>
+  <ul class="nav nav-pills nav-stacked">
+    {{#each filter.values}}
+    <li class="filter {{#if isActive ../collectionName ../filter.field}}active{{/if}}"><a href="#">{{this}}</a></li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="adminListRow">

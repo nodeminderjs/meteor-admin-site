@@ -155,4 +155,24 @@ if (Posts.find().count() === 0) {
     image: '/img/arduino.jpg',
     price: 17.00
   });
+  
+  for (var i = 0; i < 10; i++) {
+    Products.insert({
+      category: ['Hardware'],
+      name: 'Hardware ' + i,
+      description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis.',
+      image: '/img/hardware' + i + '.jpg',
+      price: i * 10
+    });
+  }
+
+  for (var i = 9; i >= 0; i--) {
+    Products.insert({
+      category: ['Software'],
+      name: 'Software ' + i,
+      description: 'Lorem ipsum dolor sit amet, eget molestie vestibulum, elit lobortis.',
+      image: '/img/software' + i + '.jpg',
+      price: i * 10
+    });
+  }
 }

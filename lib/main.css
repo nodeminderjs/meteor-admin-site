@@ -4,3 +4,15 @@
   /* background-color: #428bca; */
   background-color: #aaa;
 }
+
+.admin-filter-clear {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dotted gray;
+}
+
+.admin-filter {
+  margin-top: 10px;
+  padding-top: 4px;
+  border-top: 1px dotted gray;
+}
