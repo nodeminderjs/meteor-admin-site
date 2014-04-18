@@ -13,8 +13,8 @@ There will be absolutely no concern about backward compatibility until version 1
 or until a more functional and stable state is reached, at the discretion of the project manager.
 
 
-Hack on Nitrous.IO
-------------------
+Test Drive Meteor Admin Site
+----------------------------
 
 Click this button to start hacking on ```meteor-admin-site``` on [Nitrous.IO](https://www.nitrous.io/?utm_source=github.com&utm_campaign=meteor-admin-site&utm_medium=hackonnitrous) in a matter of seconds:
 
