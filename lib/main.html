@@ -74,7 +74,12 @@
         <thead>
           <tr>
             {{#each listFields}}
-              <th>{{printLabel ../collectionName this}}</th>
+              <th>
+                <a href="#" class="sort" data-field="{{this}}">
+                  {{printLabel ../collectionName this}}
+                </a>
+                {{> adminSortOrder field=this collectionName=../collectionName }}
+              </th>
             {{/each}}
           </tr>
         </thead>
@@ -108,6 +113,16 @@
         {{/each}}
         <div class="admin-filter-clear"><a href="#" class="clear">Clear all filters</a></div>
       </div>
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name="adminSortOrder">
+  {{#if isSort}}
+    {{#if isAsc}}
+      <span class="glyphicon admin-sort-glyphicon glyphicon-arrow-down"></span>
+    {{else}}
+      <span class="glyphicon admin-sort-glyphicon glyphicon-arrow-up"></span>
     {{/if}}
   {{/if}}
 </template>
