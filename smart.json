@@ -3,7 +3,7 @@
   "description": "A Meteor admin tool loosely inspired by the Django admin site",
   "homepage": "https://github.com/nodeminderjs/meteor-admin-site",
   "author": "NodeMinderJS",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "git": "https://github.com/nodeminderjs/meteor-admin-site.git",
   "packages": {
     "iron-router": {}
