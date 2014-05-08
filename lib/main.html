@@ -159,7 +159,7 @@
     {{/with}}
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary" value="Submit">Save</button>
+        <a href="#" id="save-btn" class="btn btn-primary" role="button">Save</a>
         <a href="{{pathFor 'adminMain'}}/{{collectionName}}" class="btn btn-default" role="button">Cancel</a>
         <a href="{{pathFor 'adminMain'}}/{{collectionName}}/delete/{{doc._id}}" class="btn btn-danger pull-right delete">Delete</a>
       </div>
@@ -179,7 +179,11 @@
             {{/each}}
           </select>
         {{else}}
-          <input type="text" class="form-control" id="{{name}}" value="{{value}}" placeholder="">
+          {{#if template}}
+            {{> getPluginTemplate}}
+          {{else}}
+            <input type="text" class="form-control" id="{{name}}" value="{{value}}" placeholder="">
+          {{/if}}
         {{/if}}
       </div>
     </div>

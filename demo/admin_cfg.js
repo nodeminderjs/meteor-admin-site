@@ -116,9 +116,38 @@ Admin.startup(function() {
           return Categories.find({}, {fields: {name: 1}, sort: {'name': 1}}).map(function(c) {return c.name;});
         }
       }
-    ]
+    ],
+    plugins: {
+      category: {
+        template: 'adminCategoryPlugin',
+        getValue: function(field) {
+          var value = $('#' + field).val();
+          return value.split(',').sort();
+        }
+      }
+    }
   });
 });
+
+/*
+ * Plugins
+ */
+
+if (Meteor.isServer) {
+  Meteor.publish('adminCategoryPlugin', function() {
+    return Categories.find({}, {sort: {name: 1}});
+  });  
+}
+
+if (Meteor.isClient) {
+  Meteor.subscribe('adminCategoryPlugin');
+
+  Template.adminCategoryPlugin.getCategories = function() {
+    var categories = Categories.find({}, {sort: {name: 1}}).map(function(c) {return c.name;});
+    //return JSON.stringify(['Belo Horizonte', 'Niterói', 'Nova Friburgo', 'Rio de Janeiro', 'São Paulo']);
+    return JSON.stringify(categories);
+  }
+}
 
 /*
  * Helper functions

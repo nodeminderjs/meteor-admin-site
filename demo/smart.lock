@@ -5,7 +5,8 @@
       "bootstrap-3": {},
       "iron-router": {},
       "spin": {},
-      "accounts-ui-bootstrap-3": {}
+      "accounts-ui-bootstrap-3": {},
+      "bootstrap-tagsinput": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
         "tag": "v0.3.0-1",
         "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+      },
+      "bootstrap-tagsinput": {
+        "git": "https://github.com/ajduke/meteor-bootstrap-tagsinput.git",
+        "tag": "v0.0.2",
+        "commit": "32214c66ddc6e569c3b88fd65be8a70b10f0769d"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

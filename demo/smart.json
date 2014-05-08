@@ -3,6 +3,7 @@
     "bootstrap-3": {},
     "iron-router": {},
     "spin": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "bootstrap-tagsinput": {}
   }
 }
