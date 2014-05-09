@@ -1,0 +1,26 @@
+<template name="addressesPlugin">
+  <div id="addressesPlugin">
+    <div id="addresses">
+      {{#each value}}
+        <div class="address" style="margin-bottom: 8px;">
+          <input class="form-control street1" type="text" value="{{street1}}" placeholder="Street Address 1">
+          <input class="form-control street2" type="text" value="{{street2}}" placeholder="Street Address 2">
+          <input class="form-control city"    type="text" value="{{city}}"    placeholder="City">
+          <input class="form-control state"   type="text" value="{{state}}"   placeholder="State">
+          <input class="form-control zip"     type="text" value="{{zip}}"     placeholder="ZIP Code">
+          <input class="form-control country" type="text" value="{{country}}" placeholder="Country">
+          <button type="button" class="btn btn-danger btn-xs pull-right del">Delete address</button>
+        </div>
+      {{/each}}
+    </div>
+    <button type="button" class="btn btn-default btn-xs new">New address</button>
+  </div>
+  <script>
+    $('#addressesPlugin button.new').click(function() {
+      alert('new');
+    });
+    $('#addressesPlugin button.del').click(function() {
+      alert('del');
+    });
+  </script>
+</template>

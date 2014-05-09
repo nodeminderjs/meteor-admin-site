@@ -30,7 +30,7 @@ Admin.startup(function() {
         return formatDateTime(dt);
       }
     },
-    editFields: ['profile.name', 'profile.role'],
+    editFields: ['profile.name', 'profile.role', 'profile.addresses'],
     customEditFields: {
       'profile.role': {
         type: 'select',
@@ -41,7 +41,11 @@ Admin.startup(function() {
       '_id': 'Id',
       'profile.name': 'Name',
       'profile.role': 'Role',
+      'profile.addresses': 'Addresses',
       'createdAt': 'Created'
+    },
+    plugins: {
+      'profile.addresses': AddressesPlugin
     }
   });
       

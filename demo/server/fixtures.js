@@ -7,7 +7,11 @@ if (Posts.find().count() === 0) {
     "createdAt" : now - 24 * 3600 * 1000,
     "profile" : {
       "name" : "Administrator",
-      "role" : "admin"
+      "role" : "admin",
+      "addresses":  [
+        {street1:'Av Rio Branco, 18',   street2:'SL 1801',    city:'Rio de Janeiro', state:'RJ', zip:'24000-000', country:'Brazil'},
+        {street1:'55 East 52nd Street', street2:'21st Floor', city:'New York',       state:'NY', zip:'10022',     country:'USA' }
+      ]
     },
     "services" : {
       "password" : {
