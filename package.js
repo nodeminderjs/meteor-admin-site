@@ -13,7 +13,6 @@ Package.on_use(function(api) {
 
   api.add_files('lib/admin.js', ['client', 'server']);
   api.add_files(['lib/main.html', 'lib/main.js', 'lib/main.css'], 'client');
-  api.add_files('lib/router.js', ['client', 'server']);
 });
 
 /*
