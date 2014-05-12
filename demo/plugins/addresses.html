@@ -1,23 +1,25 @@
-<template name="addressesPlugin">
-  <div id="addressesPlugin">
-    <div class="blank-address">
-      {{> address}}
+<template name="aspAddresses">
+  <div id="asp-addresses-plugin">
+    <div class="asp-blank-address">
+      {{> aspAddress}}
     </div>
-    <div id="addresses">
+    
+    <div id="asp-addresses">
       {{#if value}}
         {{#each value}}
-          {{> address}}
+          {{> aspAddress}}
         {{/each}}
       {{else}}
-        {{> address}}
+        {{> aspAddress}}
       {{/if}}
     </div>
-    <button type="button" class="btn btn-primary btn-xs new">New address</button>
+
+    <button type="button" class="btn btn-primary btn-xs asp-btn-new">New address</button>
   </div>
 </template>
 
-<template name="address">
-  <div class="address">
+<template name="aspAddress">
+  <div class="asp-address">
     <div class="row">
       <div class="col-xs-12">
         <input class="form-control input-sm street1" type="text" value="{{street1}}" placeholder="Street Address 1">
@@ -42,7 +44,7 @@
         <input class="form-control input-sm country" type="text" value="{{country}}" placeholder="Country">
       </div>
       <div class="col-xs-2">
-        <button type="button" class="btn btn-danger btn-xs pull-right del">Delete address</button>
+        <button type="button" class="btn btn-danger btn-xs pull-right asp-btn-del">Delete address</button>
       </div>
     </div>
   </div>

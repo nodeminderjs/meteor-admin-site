@@ -1,15 +1,15 @@
-.addressesPlugin {
+.asp-addresses-plugin {
   margin-bottom: 4px;
 }
 
-.blank-address {
+.asp-blank-address {
   display: none;
 }
 
-.address {
+.asp-address {
  margin-bottom: 10px;
 }
 
-.address .row {
+.asp-address .row {
   margin-bottom: 4px;
 }

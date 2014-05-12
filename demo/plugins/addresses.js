@@ -1,12 +1,12 @@
 /*
  * Addresses plugin
  */
-
-AddressesPlugin = {
-  template: 'addressesPlugin',
-  getValue: function() {
+aspAddressesPlugin = {
+  template: 'aspAddresses',
+  
+  getValue: function(field) {
     var value = [], obj;
-    $("#addresses").children().each(function() {
+    $("#asp-addresses").children().each(function() {
       obj = {};
       obj['street1'] = $(".street1", this).val().trim();  // 'this' is the current element in the loop
       if (obj['street1']) {
@@ -18,30 +18,29 @@ AddressesPlugin = {
         value.push(obj);
       }
     });
-    console.log(value);
     return value;
   }
 }
 
 if (Meteor.isClient) {
-  var newClick = function(e) {
-    e.preventDefault();
-    var address = $(".blank-address .address").clone().appendTo($("#addresses"));
-    $(".del", address).click(delClick);
-  }
-
   var delClick = function(e) {
     e.preventDefault();
     $(e.target).parent().parent().parent().remove();
-    if ($("#addresses").children().length === 0)
+    if ($("#asp-addresses").children().length === 0)
       newClick(e);
   }
-  
-  Template.addressesPlugin.events({
-    'click .new': newClick
+
+  var newClick = function(e) {
+    e.preventDefault();
+    var address = $(".asp-blank-address .asp-address").clone().appendTo($("#asp-addresses"));
+    $(".asp-btn-del", address).click(delClick);
+  }
+
+  Template.aspAddresses.events({
+    'click .asp-btn-new': newClick
   });
 
-  Template.address.events({
-    'click .del': delClick
+  Template.aspAddress.events({
+    'click .asp-btn-del': delClick
   });
 }

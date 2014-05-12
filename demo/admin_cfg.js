@@ -45,7 +45,7 @@ Admin.startup(function() {
       'createdAt': 'Created'
     },
     plugins: {
-      'profile.addresses': AddressesPlugin
+      'profile.addresses': aspAddressesPlugin
     }
   });
       
