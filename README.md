@@ -16,9 +16,17 @@ or until a more functional and stable state is reached, at the discretion of the
 Screenshots
 -----------
 
-![alt text](http://2.bp.blogspot.com/-H-W9RKm2-d4/U3EyG4Hj6YI/AAAAAAAAAHA/vFso7gWRrpg/s1600/01_products_list.jpg "Products list with a filter, pagination and ordered by name")
+![Products list screen with a filter, pagination and ordered by name](http://2.bp.blogspot.com/-H-W9RKm2-d4/U3EyG4Hj6YI/AAAAAAAAAHA/vFso7gWRrpg/s1600/01_products_list.jpg "Products list screen with a filter, pagination and ordered by name")
 
 Products list with a filter, pagination and ordered by name.
+
+![Product edit screen with a custom tags array field](http://4.bp.blogspot.com/-5_PLtHQxW8M/U3EyG41AklI/AAAAAAAAAG4/8TkzqmwkfIM/s1600/02_products_edit_tags.jpg "Product edit screen with a custom tags array field")
+
+Product edit screen with a custom tags array field
+
+![User edit screen with a custom addresses array field](http://3.bp.blogspot.com/-hnWiUSIM6ik/U3EyG2YOyzI/AAAAAAAAAG8/IxBFixSOfDU/s1600/03_users_edit_addresses.jpg "User edit screen with a custom addresses array field")
+
+User edit screen with a custom addresses array field
 
 
 Test Drive Meteor Admin Site
