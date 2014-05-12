@@ -1,2 +1,5 @@
 Plugins
 =======
+
+* Addresses
+* Tags

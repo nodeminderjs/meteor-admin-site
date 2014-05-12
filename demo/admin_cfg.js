@@ -122,19 +122,13 @@ Admin.startup(function() {
       }
     ],
     plugins: {
-      category: {
-        template: 'adminCategoryPlugin',
-        getValue: function(field) {
-          var value = $('#' + field).val();
-          return value.split(',').sort();
-        }
-      }
+      category: aspTagsPlugin
     }
   });
 });
 
 /*
- * Plugins
+ * Tags plugin
  */
 
 if (Meteor.isServer) {
@@ -146,9 +140,8 @@ if (Meteor.isServer) {
 if (Meteor.isClient) {
   Meteor.subscribe('adminCategoryPlugin');
 
-  Template.adminCategoryPlugin.getCategories = function() {
+  Template.aspTags.getTags = function() {
     var categories = Categories.find({}, {sort: {name: 1}}).map(function(c) {return c.name;});
-    //return JSON.stringify(['Belo Horizonte', 'Niterói', 'Nova Friburgo', 'Rio de Janeiro', 'São Paulo']);
     return JSON.stringify(categories);
   }
 }

@@ -1,0 +1,14 @@
+<template name="aspTags">
+  <div id="asp-tags-{{name}}">
+    <input id="{{name}}" type="text" value="{{value}}" style="display: none;">
+  </div>
+
+  <script>
+    $("#asp-tags-{{name}} input").tagsinput({
+      typeahead: {
+        source: {{getTags}}
+      },
+      freeInput: false
+    });
+  </script>
+</template>
