@@ -1,0 +1,15 @@
+.addressesPlugin {
+  margin-bottom: 4px;
+}
+
+.blank-address {
+  display: none;
+}
+
+.address {
+ margin-bottom: 10px;
+}
+
+.address .row {
+  margin-bottom: 4px;
+}
